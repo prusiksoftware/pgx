@@ -33,7 +33,7 @@ func (dst *PasswordMessage) Decode(src []byte) error {
 func (src *PasswordMessage) Encode(dst []byte) ([]byte, error) {
 	dst, sp := beginMessage(dst, 'p')
 	l := len(src.Password)
-	dst = append(dst, []byte(strconv.Itoa(l)))
+	dst = append(dst, []byte(strconv.Itoa(l))...)
 	dst = append(dst, src.Password...)
 	dst = append(dst, 0)
 	return finishMessage(dst, sp)
